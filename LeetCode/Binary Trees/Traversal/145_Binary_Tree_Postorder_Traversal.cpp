@@ -13,31 +13,29 @@ struct TreeNode {
 
 class Solution {
 private:
-    void preOrderTraversal(TreeNode* node, vector<int>& ans){
-        if(!node){
-            return;
-        }
+    void postOrderTraversal(TreeNode* root, vector<int>& ans){
+        if(!root) return;
 
-        ans.push_back(node->val);
-        preOrderTraversal(node->left, ans);
-        preOrderTraversal(node->right, ans);
+        postOrderTraversal(root->left, ans);
+        postOrderTraversal(root->right, ans);
+        ans.push_back(root->val);
     }
-
 public:
-    vector<int> preorderTraversal(TreeNode* root) {
+    vector<int> postorderTraversal(TreeNode* root) {
         vector<int> ans;
-        preOrderTraversal(root, ans);
+        postOrderTraversal(root, ans);
+
         return ans;
     }
 };
 
 // Technique:
-// Recursion (Pre-Order Tree Traversal)
+// Recursion: Postorder (Tree Traversal)
 
 // Approach:
-// Use recursion to perform preorder traversal of the binary tree.
-// Visit the current node first, then recursively traverse
-// the left subtree followed by the right subtree.
+// Use recursion to perform postorder traversal of the binary tree.
+// Traverse left subtree, then right subtree,
+// and finally visit the current node.
 // Store node values in the result vector during traversal.
 
 // TC: O(N)

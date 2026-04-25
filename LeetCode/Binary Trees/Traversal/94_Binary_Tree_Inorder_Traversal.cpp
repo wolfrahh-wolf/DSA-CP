@@ -2,6 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -13,31 +14,30 @@ struct TreeNode {
 
 class Solution {
 private:
-    void preOrderTraversal(TreeNode* node, vector<int>& ans){
-        if(!node){
-            return;
-        }
+    void inOrderTraversal(TreeNode* root, vector<int>& ans){
+        if(!root) return;
 
-        ans.push_back(node->val);
-        preOrderTraversal(node->left, ans);
-        preOrderTraversal(node->right, ans);
+        inOrderTraversal(root->left, ans);
+        ans.push_back(root->val);
+        inOrderTraversal(root->right, ans);
     }
 
 public:
-    vector<int> preorderTraversal(TreeNode* root) {
+    vector<int> inorderTraversal(TreeNode* root) {
         vector<int> ans;
-        preOrderTraversal(root, ans);
+        inOrderTraversal(root, ans);
+
         return ans;
     }
 };
 
 // Technique:
-// Recursion (Pre-Order Tree Traversal)
+// Recursion (Tree Traversal)
 
 // Approach:
-// Use recursion to perform preorder traversal of the binary tree.
-// Visit the current node first, then recursively traverse
-// the left subtree followed by the right subtree.
+// Use recursion to perform inorder traversal of the binary tree.
+// Traverse left subtree, then visit current node,
+// and finally traverse the right subtree.
 // Store node values in the result vector during traversal.
 
 // TC: O(N)
