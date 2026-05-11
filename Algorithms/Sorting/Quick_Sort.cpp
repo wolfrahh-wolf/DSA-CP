@@ -27,7 +27,7 @@ public:
         }
         // Place the pivot in its correct position
         swap(arr[low], arr[j]);
-        return j;
+        return j; // j is the Pivot
     }
 
     // Recursive helper function for QuickSort

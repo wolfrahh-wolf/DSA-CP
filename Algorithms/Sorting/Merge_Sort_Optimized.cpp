@@ -57,6 +57,9 @@ int main()
     return 0;
 }
 
+
+//  Optimixation: Created temp Array in the main sorting func so that it can be reused.
+
 /*
 Time Complexity: O(N log N) ==> Optimal for comparison-based sorting
 Space Complexity: O(N) ==> Auxilliary space needed for temporary arrays during merge
